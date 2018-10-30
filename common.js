@@ -14569,7 +14569,7 @@ var SubMenu = __WEBPACK_IMPORTED_MODULE_4_create_react_class___default()({
       });
     };
     // prevent popup menu and submenu gap
-    parentMenu.subMenuLeaveTimer = setTimeout(parentMenu.subMenuLeaveFn, 100);
+    parentMenu.subMenuLeaveTimer = setTimeout(parentMenu.subMenuLeaveFn, leaveDelay);
   },
   onTitleMouseEnter: function onTitleMouseEnter(domEvent) {
     var props = this.props;
