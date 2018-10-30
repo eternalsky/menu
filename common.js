@@ -14443,7 +14443,7 @@ var SubMenu = __WEBPACK_IMPORTED_MODULE_4_create_react_class___default()({
       onTitleMouseLeave: __WEBPACK_IMPORTED_MODULE_8__util__["a" /* noop */],
       onTitleClick: __WEBPACK_IMPORTED_MODULE_8__util__["a" /* noop */],
       title: '',
-      titleLeaveDelay: 100
+      leaveDelay: 100
     };
   },
   getInitialState: function getInitialState() {
@@ -14526,7 +14526,8 @@ var SubMenu = __WEBPACK_IMPORTED_MODULE_4_create_react_class___default()({
 
     var props = this.props;
     var parentMenu = props.parentMenu,
-        eventKey = props.eventKey;
+        eventKey = props.eventKey,
+        leaveDelay = props.leaveDelay;
 
     parentMenu.subMenuInstance = this;
     parentMenu.subMenuLeaveFn = function () {
@@ -14609,8 +14610,7 @@ var SubMenu = __WEBPACK_IMPORTED_MODULE_4_create_react_class___default()({
 
     var props = this.props;
     var parentMenu = props.parentMenu,
-        eventKey = props.eventKey,
-        titleLeaveDelay = props.titleLeaveDelay;
+        eventKey = props.eventKey;
 
     parentMenu.subMenuInstance = this;
     parentMenu.subMenuTitleLeaveFn = function () {
@@ -14629,7 +14629,7 @@ var SubMenu = __WEBPACK_IMPORTED_MODULE_4_create_react_class___default()({
         domEvent: e
       });
     };
-    parentMenu.subMenuTitleLeaveTimer = setTimeout(parentMenu.subMenuTitleLeaveFn, titleLeaveDelay);
+    parentMenu.subMenuTitleLeaveTimer = setTimeout(parentMenu.subMenuTitleLeaveFn, 100);
   },
   onTitleClick: function onTitleClick(e) {
     var props = this.props;
