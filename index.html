@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
-  <title>rc-menu@7.4.18 - menu ui component for react</title>
+  <title>menu5-fix@5.1.4 - menu ui component for react</title>
   <style>
     @font-face {
       font-family: octicons-anchor;
@@ -737,7 +737,7 @@
 
 <body>
 <div class="header">
-  <h1>rc-menu@7.4.18</h1>
+  <h1>menu5-fix@5.1.4</h1>
 </div>
 <div class="examples">
   <h3>EXAMPLES</h3>
@@ -745,8 +745,6 @@
     <ul>
       
       <li><a href="examples/antd.html">antd</a></li>
-      
-      <li><a href="examples/custom-icon.html">custom-icon</a></li>
       
       <li><a href="examples/keyPath.html">keyPath</a></li>
       
@@ -803,8 +801,8 @@ ReactDOM.render(<span class="hljs-tag">&lt;<span class="hljs-title">Menu</span>&
         <tr>
           <td>mode</td>
           <td>String</td>
-          <th>vertical</th>
-          <td>one of [&quot;horizontal&quot;,&quot;inline&quot;,&quot;vertical-left&quot;,&quot;vertical-right&quot;]</td>
+          <td>vertical</td>
+          <td>one of [&quot;vertical&quot;,&quot;horizontal&quot;,&quot;inline&quot;]</td>
         </tr>
         <tr>
             <td>activeKey</td>
@@ -879,10 +877,16 @@ ReactDOM.render(<span class="hljs-tag">&lt;<span class="hljs-title">Menu</span>&
             <td>called when deselect a menu item. only called when allow multiple</td>
         </tr>
         <tr>
-            <td>triggerSubMenuAction</td>
-            <td>Enum { hover, click }</td>
-            <th>hover</th>
-            <td>which action can trigger submenu open/close</td>
+            <td>openSubMenuOnMouseEnter</td>
+            <td>bool</td>
+            <th>true</th>
+            <td>whether enable top items to open on mouse enter</td>
+        </tr>
+        <tr>
+            <td>closeSubMenuOnMouseLeave</td>
+            <td>bool</td>
+            <th>true</th>
+            <td>whether enable close submenu on mouse leave</td>
         </tr>
         <tr>
             <td>openAnimation</td>
@@ -895,48 +899,6 @@ ReactDOM.render(<span class="hljs-tag">&lt;<span class="hljs-title">Menu</span>&
             <td>String</td>
             <th></th>
             <td>css transitionName when sub menu open or close</td>
-        </tr>
-        <tr>
-            <td>subMenuOpenDelay</td>
-            <td>Number</td>
-            <th>0</th>
-            <td>delay time to show popup sub menu. unit: s</td>
-        </tr>
-        <tr>
-            <td>subMenuCloseDelay</td>
-            <td>Number</td>
-            <th>0.1</th>
-            <td>delay time to hide popup sub menu. unit: s</td>
-        </tr>
-        <tr>
-            <td>forceSubMenuRender</td>
-            <td>Boolean</td>
-            <th>false</th>
-            <td>whether to render submenu even if it is not visible</td>
-        </tr>
-        <tr>
-            <td>getPopupContainer</td>
-            <td>Function(menuDOMNode): HTMLElement</td>
-            <th>() =&gt; document.body</th>
-            <td>Where to render the DOM node of popup menu when the mode is horizontal or vertical</td>
-        </tr>
-        <tr>
-            <td>builtinPlacements</td>
-            <td>Object of alignConfigs for <a href="https://github.com/yiminghe/dom-align">dom-align</a></td>
-            <th>see <a href="./src/placements.jsx">placements.jsx</a></th>
-            <td>Describes how the popup menus should be positioned</td>
-        </tr>
-        <tr>
-            <td>itemIcon</td>
-            <td>ReactNode | (props: MenuItemProps) =&gt; ReactNode</td>
-            <th></th>
-            <td>Specify the menu item icon.</td>
-        </tr>
-        <tr>
-            <td>expandIcon</td>
-            <td>ReactNode | (props: SubMenuProps &amp; { isSubMenu: boolean }) =&gt; ReactNode</td>
-            <th></th>
-            <td>Specify the menu item icon.</td>
         </tr>
     </tbody>
 </table>
@@ -981,12 +943,6 @@ ReactDOM.render(<span class="hljs-tag">&lt;<span class="hljs-title">Menu</span>&
             <th></th>
             <td></td>
         </tr>
-        <tr>
-            <td>itemIcon</td>
-            <td>ReactNode | (props: MenuItemProps) =&gt; ReactNode</td>
-            <th></th>
-            <td>Specify the menu item icon.</td>
-        </tr>
     </tbody>
 </table>
 
@@ -1002,7 +958,7 @@ ReactDOM.render(<span class="hljs-tag">&lt;<span class="hljs-title">Menu</span>&
     </thead>
     <tbody>
         <tr>
-          <td>popupClassName</td>
+          <td>className</td>
           <td>String</td>
           <td></td>
           <td>additional css class of root dom node</td>
@@ -1012,12 +968,6 @@ ReactDOM.render(<span class="hljs-tag">&lt;<span class="hljs-title">Menu</span>&
           <td>String/ReactElement</td>
           <td></td>
           <td>sub menu&#39;s content</td>
-        </tr>
-        <tr>
-          <td>overflowedIndicator</td>
-          <td>String/ReactElement</td>
-          <td>···</td>
-          <td>overflow indicator when menu overlows in horizontal mode</td>
         </tr>
         <tr>
             <td>key</td>
@@ -1060,24 +1010,6 @@ ReactDOM.render(<span class="hljs-tag">&lt;<span class="hljs-title">Menu</span>&
             <td>Function({eventKey, domEvent})</td>
             <th></th>
             <td></td>
-        </tr>
-        <tr>
-            <td>popupOffset</td>
-            <td>Array</td>
-            <th></th>
-            <td>The offset of the popup submenu, in an x, y coordinate array. e.g.: <code>[0,15]</code></td>
-        </tr>
-        <tr>
-            <td>expandIcon</td>
-            <td>ReactNode | (props: SubMenuProps) =&gt; ReactNode</td>
-            <th></th>
-            <td>Specify the menu item icon.</td>
-        </tr>
-        <tr>
-            <td>itemIcon</td>
-            <td>ReactNode | (props: SubMenuProps &amp; { isSubMenu: boolean }) =&gt; ReactNode</td>
-            <th></th>
-            <td>Specify the menu item icon.</td>
         </tr>
     </tbody>
 </table>
