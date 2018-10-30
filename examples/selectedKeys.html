@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>selectedKeys.js - example - menu5-fix@5.1.6</title>
+  <title>selectedKeys.js - example - menu5-fix@5.1.7</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -257,13 +257,13 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
     document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
   }
   </script>
-  
+  <link rel="stylesheet" href="../common.css" />
 </head>
 
 <body>
   <div class="container">
     <div class="header">
-      <h1>menu5-fix@5.1.6</h1>
+      <h1>menu5-fix@5.1.7</h1>
 
       <p>menu ui component for react</p>
     </div>
@@ -273,10 +273,10 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
+import Menu, { SubMenu, Item as MenuItem } from 'menu5-fix';
 import createReactClass from 'create-react-class';
 
-import 'rc-menu/assets/index.less';
+import 'menu5-fix/assets/index.css';
 
 const Test = createReactClass({
   getInitialState() {
